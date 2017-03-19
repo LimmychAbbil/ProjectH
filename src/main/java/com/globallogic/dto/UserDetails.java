@@ -3,9 +3,6 @@ package main.java.com.globallogic.dto;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by Limmy on 12.03.2017.
- */
 @Entity
 public class UserDetails {
     @Id
