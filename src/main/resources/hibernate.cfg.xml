@@ -12,6 +12,9 @@
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">create</property>
+
+        <mapping resource="main/resources/user.hbm.xml"></mapping>
 
     </session-factory>
 </hibernate-configuration>
