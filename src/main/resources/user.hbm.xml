@@ -3,13 +3,10 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="main.java.com.globallogic.dto.UserDetails" table="" catalog="test">
+    <class name="com.globallogic.dto.UserDetails" table="users" catalog="test">
         <id name="userId" type="java.lang.Integer">
-            <column name="USER_ID" />
-            <generator class="identity" />
         </id>
-        <property name="username" type="string">
-            <column name="NAME" length="20" not-null="true" unique="true" />
+        <property name="username" type="string" >
         </property>
     </class>
 </hibernate-mapping>

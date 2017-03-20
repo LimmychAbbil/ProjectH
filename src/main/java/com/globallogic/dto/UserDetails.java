@@ -1,4 +1,4 @@
-package main.java.com.globallogic.dto;
+package com.globallogic.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

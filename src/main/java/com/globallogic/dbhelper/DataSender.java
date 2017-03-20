@@ -1,6 +1,6 @@
-package main.java.com.globallogic.dbhelper;
+package com.globallogic.dbhelper;
 
-import main.java.com.globallogic.dto.UserDetails;
+import com.globallogic.dto.UserDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -14,14 +14,14 @@ public class DataSender {
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
     public void sendData(UserDetails user) {
-        Session sesssion = sessionFactory.openSession();
-        if (sesssion.isConnected()) {
+        Session session = sessionFactory.openSession();
+        if (session.isConnected()) {
             System.out.println("ALL IS GOOD");
-            sesssion.beginTransaction();
-            sesssion.save(user);
+            session.beginTransaction();
+            session.save(user);
 
-            sesssion.getTransaction().commit();
-            sesssion.close();
+            session.getTransaction().commit();
+            session.close();
             System.err.println("Connection is closed");
         }
 

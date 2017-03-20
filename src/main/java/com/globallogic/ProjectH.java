@@ -1,7 +1,7 @@
-package main.java.com.globallogic;
+package com.globallogic;
 
-import main.java.com.globallogic.dbhelper.DataSender;
-import main.java.com.globallogic.dto.UserDetails;
+import com.globallogic.dbhelper.DataSender;
+import com.globallogic.dto.UserDetails;
 
 /**
  * Created by Limmy on 19.03.2017.
