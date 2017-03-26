@@ -1,5 +1,6 @@
 package com.globallogic;
 
+import com.globallogic.dbhelper.DataGetter;
 import com.globallogic.dbhelper.DataSender;
 import com.globallogic.dto.UserDetails;
 
@@ -14,5 +15,10 @@ public class ProjectH {
         user1.setUserId(1);
         user1.setUsername("Test");
         ds.sendData(user1);
+
+        DataGetter dg = new DataGetter();
+        user1 = dg.getData(1);
+
+        System.out.println(user1);
     }
 }
