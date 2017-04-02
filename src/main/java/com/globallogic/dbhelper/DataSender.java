@@ -11,7 +11,7 @@ import org.hibernate.cfg.Configuration;
 public class DataSender {
     private SessionFactory sessionFactory;
     public DataSender() {
-        sessionFactory = new Configuration().configure().buildSessionFactory();
+        sessionFactory = new Configuration().configure().addAnnotatedClass(UserDetails.class).buildSessionFactory();
     }
     public void sendData(UserDetails user) {
         Session session = sessionFactory.openSession();

@@ -13,7 +13,7 @@ public class DataGetter {
     public UserDetails getData(int userId) {
         UserDetails user = null;
 
-        sessionFactory = new Configuration().configure().buildSessionFactory();
+        sessionFactory = new Configuration().configure().addAnnotatedClass(UserDetails.class).buildSessionFactory();
         Session session = sessionFactory.openSession();
         if (session.isConnected()) {
             System.out.println("READY TO READ");
