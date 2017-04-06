@@ -1,6 +1,8 @@
 package com.globallogic.dto;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -14,6 +16,17 @@ public class UserDetails {
     @Embedded
     @AttributeOverride(name = "fullAddress", column = @Column(name = "Work_Address"))
     private UserAddress workAddress;
+//    @CollectionTable(name = "InvitedUsers")
+//    List<UserDetails> invitedUsers = new ArrayList<UserDetails>();
+//      HOW TO DO IT???
+//    TODO
+//    public List<UserDetails> getInvitedUsers() {
+//        return invitedUsers;
+//    }
+//
+//    public void setInvitedUsers(List<UserDetails> invitedUsers) {
+//        this.invitedUsers = invitedUsers;
+//    }
 
     public int getUserId() {
         return userId;
