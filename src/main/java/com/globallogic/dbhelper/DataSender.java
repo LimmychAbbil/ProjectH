@@ -1,5 +1,6 @@
 package com.globallogic.dbhelper;
 
+import com.globallogic.dto.UserBan;
 import com.globallogic.dto.UserDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,18 +12,25 @@ import org.hibernate.cfg.Configuration;
 public class DataSender {
     private SessionFactory sessionFactory;
     public DataSender() {
-        sessionFactory = new Configuration().configure().addAnnotatedClass(UserDetails.class).buildSessionFactory();
+        sessionFactory = new Configuration().configure()
+                .addAnnotatedClass(UserDetails.class)
+                .addAnnotatedClass(UserBan.class)
+                .buildSessionFactory();
     }
-    public void sendData(UserDetails user) {
+    public void sendData(Object... objects) {
         Session session = sessionFactory.openSession();
         if (session.isConnected()) {
+
             System.out.println("ALL IS GOOD");
             session.beginTransaction();
-            session.save(user);
+
+            for (Object user: objects) {
+                session.save(user);
+            }
 
             session.getTransaction().commit();
             session.close();
-            System.err.println("Connection is closed");
+            System.out.println("Connection is closed");
         }
 
         sessionFactory.close();
