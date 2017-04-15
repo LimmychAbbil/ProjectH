@@ -2,12 +2,14 @@ package com.globallogic;
 
 import com.globallogic.dbhelper.DataGetter;
 import com.globallogic.dbhelper.DataSender;
+import com.globallogic.dto.Group;
 import com.globallogic.dto.UserAddress;
 import com.globallogic.dto.UserBan;
 import com.globallogic.dto.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,6 +18,8 @@ import java.util.List;
 public class ProjectH {
 
     public static void main(String[] args) {
+
+
         DataSender ds = new DataSender();
         UserDetails user1 = new UserDetails();
         user1.setUserId(1);
@@ -31,7 +35,11 @@ public class ProjectH {
         userBan2.setBlockedDate(new Date());
         userBan2.setUnBlockedDate(new Date(System.currentTimeMillis() + 3600));
 
+        Group group = new Group("all_users", user1);
+        group.getUsers().add(user2);
 
+        user1.getGroups().add(group);
+        user2.getGroups().add(group);
 
         ds.sendData(user1,user2,userBan1,userBan2);
 
