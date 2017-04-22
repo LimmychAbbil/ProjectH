@@ -1,8 +1,6 @@
 package com.globallogic.dbhelper;
 
-import com.globallogic.dto.Group;
-import com.globallogic.dto.UserBan;
-import com.globallogic.dto.UserDetails;
+import com.globallogic.dto.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -17,6 +15,8 @@ public class DataSender {
                 .addAnnotatedClass(UserDetails.class)
                 .addAnnotatedClass(UserBan.class)
                 .addAnnotatedClass(Group.class)
+                .addAnnotatedClass(OpenGroup.class)
+                .addAnnotatedClass(ClosedGroup.class)
                 .buildSessionFactory();
     }
     public void sendData(Object... objects) {

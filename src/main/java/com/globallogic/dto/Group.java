@@ -9,13 +9,13 @@ import java.util.Set;
  * Created by Limmy on 15.04.2017.
  */
 @Entity
-public class Group {
+public abstract class Group {
 
     @Id
     private String groupName;
 
     @ManyToMany(mappedBy = "groups")
-    private Collection<UserDetails> users;
+    protected Collection<UserDetails> users;
 
     @Transient
     private UserDetails leader;
@@ -53,4 +53,7 @@ public class Group {
     public void setLeader(UserDetails leader) {
         this.leader = leader;
     }
+
+    public abstract void addUser(UserDetails user);
+    public abstract void removeUser(UserDetails user);
 }
