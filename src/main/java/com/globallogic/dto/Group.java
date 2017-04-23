@@ -8,7 +8,9 @@ import java.util.Set;
 /**
  * Created by Limmy on 15.04.2017.
  */
-@Entity
+@Entity(name = "`Group`")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Group_Type")
 public abstract class Group {
 
     @Id

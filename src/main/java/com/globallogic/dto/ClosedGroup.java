@@ -1,6 +1,9 @@
 package com.globallogic.dto;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  * Created by Limmy on 22.04.2017.
