@@ -1,9 +1,12 @@
 package com.globallogic.dbhelper;
 
 import com.globallogic.dto.*;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import java.util.List;
 
 /**
  * Created by Limmy on 30.04.2017.
@@ -65,6 +68,16 @@ public class DataHelper {
             session.getTransaction().commit();
         }
         else throw new RuntimeException("Can't delete object " + o.toString());
+    }
+
+    public List<UserDetails> query() {
+        if (session.isConnected()) {
+            session.beginTransaction();
+            Query query = session.createQuery("from UserDetails");
+            List<UserDetails> list = query.list();
+            return list;
+        }
+        return null;
     }
 
     public void close() {
